@@ -92,7 +92,7 @@ class TaskContainer
      *
      * @param  string  $path
      * @param  \Laravel\Envoy\Compiler  $compiler
-     * @return void
+     * @return array
      */
     public function loadServers($path, Compiler $compiler)
     {
@@ -106,7 +106,7 @@ class TaskContainer
      * @param  \Laravel\Envoy\Compiler  $__compiler
      * @param  array  $__data
      * @param  bool  $__serversOnly
-     * @return void
+     * @return array
      */
     public function load($__path, Compiler $__compiler, array $__data = [], $__serversOnly = false)
     {
@@ -133,6 +133,13 @@ class TaskContainer
         $this->replaceSubTasks();
 
         ob_end_clean();
+
+        $__data = Arr::except(get_defined_vars(), [
+            '__path', '__dir', '__compiler', '__data', '__serversOnly',
+            '__envoyPath', '__container', 'this',
+        ]);
+
+        return $__data;
     }
 
     /**
@@ -223,7 +230,7 @@ class TaskContainer
      *
      * @param  string  $file
      * @param  array  $data
-     * @return void
+     * @return array
      */
     public function import($file, array $data = [])
     {
@@ -236,7 +243,7 @@ class TaskContainer
             throw new InvalidArgumentException("Unable to locate file: [{$file}].");
         }
 
-        $this->load($path, new Compiler, $data);
+        return $this->load($path, new Compiler, $data);
     }
 
     /**

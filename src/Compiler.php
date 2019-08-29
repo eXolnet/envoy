@@ -94,7 +94,7 @@ class Compiler
     {
         $pattern = $this->createOpenMatcher('import');
 
-        return preg_replace($pattern, '$1<?php $__container->import$2, get_defined_vars()); ?>', $value);
+        return preg_replace($pattern, '$1<?php extract($__container->import$2, get_defined_vars())); ?>', $value);
     }
 
     /**

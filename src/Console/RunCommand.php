@@ -220,35 +220,6 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Gather the dynamic options for the command.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        $options = [];
-
-        // Here we will gather all of the command line options that have been specified with
-        // the double hyphens in front of their name. We will make these available to the
-        // Blade task file so they can be used in echo statements and other structures.
-        foreach ($_SERVER['argv'] as $argument) {
-            if (! Str::startsWith($argument, '--') || in_array($argument, $this->ignoreOptions)) {
-                continue;
-            }
-
-            $option = explode('=', substr($argument, 2));
-
-            if (count($option) == 1) {
-                $option[1] = true;
-            }
-
-            $options[$option[0]] = $option[1];
-        }
-
-        return $options;
-    }
-
-    /**
      * Determine if the SSH command should be dumped.
      *
      * @return bool

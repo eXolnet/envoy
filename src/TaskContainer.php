@@ -92,11 +92,12 @@ class TaskContainer
      *
      * @param  string  $path
      * @param  \Laravel\Envoy\Compiler  $compiler
+     * @param  array  $data
      * @return array
      */
-    public function loadServers($path, Compiler $compiler)
+    public function loadServers($path, Compiler $compiler, array $data)
     {
-        return $this->load($path, $compiler, [], true);
+        return $this->load($path, $compiler, $data, true);
     }
 
     /**

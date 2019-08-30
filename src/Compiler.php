@@ -10,6 +10,10 @@ class Compiler
      * @var array
      */
     protected $serverCompilers = [
+        'Imports',
+        'SetupStart',
+        'SetupStop',
+        'Include',
         'Servers',
     ];
 

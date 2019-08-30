@@ -13,12 +13,29 @@ class SshCommand extends \Symfony\Component\Console\Command\Command
     use Command, ConfigurationParser;
 
     /**
+     * Command line options that should not be gathered dynamically.
+     *
+     * @var array
+     */
+    protected $ignoreOptions = [
+        '--help',
+        '--quiet',
+        '--version',
+        '--asci',
+        '--no-asci',
+        '--no-interactions',
+        '--verbose',
+    ];
+
+    /**
      * Configure the command options.
      *
      * @return void
      */
     protected function configure()
     {
+        $this->ignoreValidationErrors();
+
         $this
             ->setName('ssh')
             ->setDescription('Connect to an Envoy server.')
@@ -64,7 +81,7 @@ class SshCommand extends \Symfony\Component\Console\Command\Command
     protected function loadTaskContainer()
     {
         with($container = new TaskContainer)->loadServers(
-            getcwd().'/Envoy.blade.php', new Compiler, []
+            getcwd().'/Envoy.blade.php', new Compiler, $this->getOptions()
         );
 
         return $container;

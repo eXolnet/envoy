@@ -194,6 +194,12 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
                 continue;
             }
 
+            $pattern = '/[a-z_][a-z0-9_-]*@(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/';
+
+            if (preg_match($pattern, $host, $matches)) {
+                $host = $matches[0];
+            }
+
             if ($type == Process::OUT) {
                 $this->output->write('<comment>['.$host.']</comment>: '.rtrim($line).PHP_EOL);
             } else {

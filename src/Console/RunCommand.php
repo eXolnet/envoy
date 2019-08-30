@@ -8,6 +8,7 @@ use Laravel\Envoy\Task;
 use Laravel\Envoy\Compiler;
 use Laravel\Envoy\ParallelSSH;
 use Laravel\Envoy\TaskContainer;
+use Symfony\Component\Console\Terminal;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
@@ -60,6 +61,8 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
     {
         $container = $this->loadTaskContainer();
 
+        $this->terminal = new Terminal();
+
         $exitCode = 0;
 
         foreach ($this->getTasks($container) as $task) {
@@ -74,6 +77,10 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
 
                 break;
             }
+        }
+
+        if ($exitCode == 0) {
+            $this->output->writeln('');
         }
 
         foreach ($container->getFinishedCallbacks() as $callback) {
@@ -116,6 +123,9 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
         if ($confirm && ! $this->confirmTaskWithUser($task, $confirm)) {
             return;
         }
+
+        $this->output->writeln('');
+        $this->output->writeln('TASK ['.$task.'] '. str_repeat('*', $this->terminal->getWidth() - 8 - strlen($task)));
 
         if (($exitCode = $this->runTaskOverSSH($container->getTask($task, $macroOptions))) > 0) {
             foreach ($container->getErrorCallbacks() as $callback) {

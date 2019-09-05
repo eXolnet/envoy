@@ -19,6 +19,9 @@
     "require-dev": {
         "phpunit/phpunit": "^7.0"
     },
+    "suggest": {
+        "ext-posix": "Required to determine the System user on Unix systems."
+    },
     "bin": [
         "bin/envoy"
     ],

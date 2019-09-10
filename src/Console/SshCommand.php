@@ -2,12 +2,12 @@
 
 namespace Laravel\Envoy\Console;
 
-use Laravel\Envoy\Compiler;
 use InvalidArgumentException;
-use Laravel\Envoy\TaskContainer;
+use Laravel\Envoy\Compiler;
 use Laravel\Envoy\ConfigurationParser;
-use Symfony\Component\Console\Input\InputOption;
+use Laravel\Envoy\TaskContainer;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 
 class SshCommand extends \Symfony\Component\Console\Command\Command
 {

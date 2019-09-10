@@ -3,15 +3,15 @@
 namespace Laravel\Envoy\Console;
 
 use Illuminate\Support\Str;
-use Laravel\Envoy\SSH;
-use Laravel\Envoy\Task;
 use Laravel\Envoy\Compiler;
 use Laravel\Envoy\ParallelSSH;
+use Laravel\Envoy\SSH;
+use Laravel\Envoy\Task;
 use Laravel\Envoy\TaskContainer;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Terminal;
 use Symfony\Component\Process\Process;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 
 class RunCommand extends \Symfony\Component\Console\Command\Command
 {

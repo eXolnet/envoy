@@ -264,6 +264,8 @@ class TaskContainer
             return $path;
         } elseif (($path = realpath(__DIR__.'/'.$file.'.blade.php')) !== false) {
             return $path;
+        } elseif (($path = realpath(__DIR__.'/../../../'.$file.'/Envoy.blade.php')) !== false) {
+            return $path;
         }
 
         return false;

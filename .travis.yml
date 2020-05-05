@@ -5,11 +5,20 @@ php:
   - 7.3
   - 7.4
 
+env:
+  matrix:
+    - COMPOSER_FLAGS="--prefer-lowest"
+    - COMPOSER_FLAGS=""
+
 sudo: false
 
-before_install:
-  - phpenv config-rm xdebug.ini || true
+cache:
+  directories:
+    - $HOME/.composer/cache
 
-install: travis_retry composer install --no-interaction --prefer-dist
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist -vvv
 
-script: vendor/bin/phpunit --verbose
+script:
+  - composer test

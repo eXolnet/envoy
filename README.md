@@ -1,18 +1,32 @@
-# Laravel Envoy
+# Exolnet Envoy
 
-<a href="https://travis-ci.org/laravel/envoy"><img src="https://travis-ci.org/laravel/envoy.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/envoy"><img src="https://poser.pugx.org/laravel/envoy/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/envoy"><img src="https://poser.pugx.org/laravel/envoy/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/envoy"><img src="https://poser.pugx.org/laravel/envoy/license.svg" alt="License"></a>
+[![Latest Stable Version](https://img.shields.io/packagist/v/eXolnet/envoy.svg?style=flat-square)](https://packagist.org/packages/eXolnet/envoy)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/eXolnet/envoy/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/envoy)
+[![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/envoy.svg?style=flat-square)](https://packagist.org/packages/eXolnet/envoy)
 
-## Introduction
-
-Laravel Envoy provides a clean, minimal syntax for defining common tasks you run on your remote servers. Using Blade style syntax, you can easily setup tasks for deployment, Artisan commands, and more.
+This project is a fork of [Laravel Envoy](https://github.com/laravel/envoy) aim to fix some Laravel Envoy behaviours and add few neat capabilities.
+It's intended to be used with our [Laravel Envoy Template](https://github.com/eXolnet/laravel-envoy).
 
 ## Official Documentation
 
-Documentation for Envoy can be found on the [Laravel website](https://laravel.com/docs/envoy).
+Documentation for Laravel Envoy can be found on the [Laravel website](https://laravel.com/docs/envoy).
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE OF CONDUCT](CODE_OF_CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email security@exolnet.com instead of using the issue tracker.
+
+## Credits
+
+- [Taylor Otwell](https://github.com/taylorotwell)
+- [Patrick Gagnon-Renaud](https://github.com/pgrenaud)
+- [All Contributors](../../contributors)
 
 ## License
 
-Laravel Envoy is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This code is licensed under the [MIT license](http://choosealicense.com/licenses/mit/).
+Please see the [license file](LICENSE.md) for more information.

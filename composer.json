@@ -5,6 +5,10 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Patrick Gagnon-Renaud",
+            "email": "pgrenaud@exolnet.com"
+        },
+        {
             "name": "Taylor Otwell",
             "email": "taylor@laravel.com"
         }
@@ -39,6 +43,9 @@
         "branch-alias": {
             "dev-master": "1.x-dev"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true

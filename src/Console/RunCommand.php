@@ -84,7 +84,7 @@ class RunCommand extends \Symfony\Component\Console\Command\Command
         }
 
         foreach ($container->getFinishedCallbacks() as $callback) {
-            call_user_func($callback);
+            call_user_func($callback, $this->argument('task'));
         }
 
         return $exitCode;

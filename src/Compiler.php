@@ -368,7 +368,7 @@ class Compiler
     {
         $pattern = $this->createPlainMatcher('finished');
 
-        return preg_replace($pattern, '$1<?php $_vars = get_defined_vars(); $__container->finished(function() use ($_vars) { extract($_vars); $2', $value);
+        return preg_replace($pattern, '$1<?php $_vars = get_defined_vars(); $__container->finished(function($task) use ($_vars) { extract($_vars, EXTR_SKIP); $2', $value);
     }
 
     /**
